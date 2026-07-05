@@ -1,0 +1,45 @@
+﻿/* ════════════════════════════════════════
+   VARIABLES AND DESIGN TOKENS
+   Midnight Ember theme
+════════════════════════════════════════ */
+:root {
+  /* Fonts */
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+
+  /* Colors */
+  --bg: #07070c;
+  --bg2: #0a0a11;
+  --bg3: #0f0e18;
+  --surface: rgba(255, 107, 53, 0.035);
+  --surface2: rgba(255, 255, 255, 0.045);
+  --border: rgba(255, 255, 255, 0.065);
+  --border2: rgba(255, 255, 255, 0.11);
+
+  --accent: #ff6b35;
+  --accent2: #ff8c5a;
+  --accent3: #ffb38a;
+
+  --cyan: #00c9a7;
+  --green: #36d399;
+  --orange: #ffd166;
+  --red: #ff6b6b;
+  --teal: #00c9a7;
+
+  --text: #f0ede8;
+  --text2: #8a8a9e;
+  --text3: #4a4a60;
+
+  /* Shadows & Glows */
+  --shadow-glow: 0 0 60px rgba(255,107,53,0.12);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+
+  /* Radius */
+  --radius: 18px;
+  --radius-sm: 12px;
+  --radius-lg: 24px;
+
+  /* Transition */
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-fast: all 0.15s ease;
+}

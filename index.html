@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devesh Singh — Full Stack &amp; Desktop Developer</title>
+  <meta name="description" content="Portfolio of Devesh Singh — Full Stack and Desktop Developer building production-grade cloud-native applications with React, Cloudflare Workers, and Electron." />
+  <meta name="keywords" content="Devesh Singh, Full Stack Developer, React, TypeScript, Cloudflare Workers, Electron, Hono, Zustand, Vite, Portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo"><span class="logo-main">devesh</span><span class="logo-accent">.</span><span class="logo-sub">dev</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="https://pub-fed55c530c0e49f497e227113bc98dcd.r2.dev/EXE/Devesh_Resume_Latest_2026.pdf" target="_blank" class="nav-link" style="color:var(--accent) !important;font-weight:600;">Resume ↗</a></li>
+      </ul>
+      <a href="https://github.com/Devesh19201" target="_blank" class="nav-cta">GitHub <span>↗</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+      <li><a href="https://pub-fed55c530c0e49f497e227113bc98dcd.r2.dev/EXE/Devesh_Resume_Latest_2026.pdf" target="_blank" class="mobile-link" style="color:var(--accent) !important;font-weight:600;">Resume ↗</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-noise"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="badge-dot"></span>Available for opportunities</div>
+      <h1 class="hero-title">
+        <span class="hero-greeting">Hey, I'm</span>
+        <span class="hero-name">Devesh <span class="hero-name-accent">Singh</span></span>
+      </h1>
+      <p class="hero-subtitle">Full Stack &amp; Desktop Developer building<br/><span class="hero-typed" id="heroTyped"></span></p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Work <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="https://pub-fed55c530c0e49f497e227113bc98dcd.r2.dev/EXE/Devesh_Resume_Latest_2026.pdf" target="_blank" class="btn btn-ghost" style="border-color:var(--accent) !important;color:var(--accent2) !important;display:inline-flex;align-items:center;gap:6px;">View Resume <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-number" data-target="2">0</span><span class="stat-label">Production<br/>Projects</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><span class="stat-number" data-target="20">0</span><span class="stat-label">Technologies<br/>Mastered</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><span class="stat-number" data-target="40">0</span><span class="stat-label">Tech Stack<br/>Entries</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  </section>
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-card-wrap">
+            <div class="about-avatar"><canvas id="avatarCanvas"></canvas><div class="avatar-initials">DS</div></div>
+            <div class="about-tag tag-1"><span>⚡</span> React 19</div>
+            <div class="about-tag tag-2"><span>🌩️</span> Cloudflare</div>
+            <div class="about-tag tag-3"><span>🖥️</span> Electron 42</div>
+            <div class="about-tag tag-4"><span>🔥</span> Hono</div>
+            <div class="about-tag tag-5"><span>⚡</span> Vite</div>
+            <div class="about-location"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Faridabad, Haryana</div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-label">Who I am</div>
+          <h2 class="section-title">Building Systems<br/>That Actually <em>Ship</em></h2>
+          <p class="about-text">I'm a Full Stack and Desktop Developer who architects and ships complete production systems. My focus is on real-time WebSocket architectures, serverless cloud infrastructure, and native desktop applications.</p>
+          <p class="about-text">Building at <strong>Amagle Software</strong>, where I architected a healthcare QR emergency ID platform. Also shipped <strong>PrintStudio</strong> — a B2B SaaS print automation platform with Cloudflare's distributed backend, Razorpay billing, and an Electron desktop client.</p>
+          <div class="about-highlights">
+            <div class="highlight-item"><div class="highlight-icon">🎓</div><div><strong>B.Tech CSE</strong><span>SDIT, Faridabad — 2022-2026</span></div></div>
+            <div class="highlight-item"><div class="highlight-icon">☁️</div><div><strong>AWS Academy Certified</strong><span>Cloud Foundations</span></div></div>
+            <div class="highlight-item"><div class="highlight-icon">🚀</div><div><strong>Open to opportunities</strong><span>Remote / Hybrid across India</span></div></div>
+          </div>
+          <div class="about-links">
+            <a href="https://github.com/Devesh19201" target="_blank" class="social-pill"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+            <a href="https://linkedin.com/in/dev-devesh" target="_blank" class="social-pill"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+            <a href="mailto:devesh192013@gmail.com" class="social-pill"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SKILLS -->
+  <section class="section skills" id="skills">
+    <div class="skills-bg-canvas-wrap">
+      <canvas id="skillGalaxyCanvas"></canvas>
+      <div class="galaxy-tooltip" id="galaxyTooltip"></div>
+    </div>
+    <div class="container skills-container">
+      <div class="section-header">
+        <div class="section-label">Full Arsenal</div>
+        <h2 class="section-title">Every Tool I <em>Use</em></h2>
+        <p class="section-desc">Interact with the galaxy above &mdash; hover nodes to explore my stack</p>
+      </div>
+
+      <!-- Marquee -->
+      <div class="framework-showcase">
+        <div class="framework-row">
+          <div class="fw-pill"><span class="fw-dot dot-react"></span>React 19</div>
+          <div class="fw-pill"><span class="fw-dot dot-ts"></span>TypeScript</div>
+          <div class="fw-pill"><span class="fw-dot dot-vite"></span>Vite</div>
+          <div class="fw-pill"><span class="fw-dot dot-node"></span>Node.js</div>
+          <div class="fw-pill"><span class="fw-dot dot-hono"></span>Hono</div>
+          <div class="fw-pill"><span class="fw-dot dot-electron"></span>Electron 42</div>
+          <div class="fw-pill"><span class="fw-dot dot-cf"></span>Cloudflare Workers</div>
+          <div class="fw-pill"><span class="fw-dot dot-zustand"></span>Zustand</div>
+          <div class="fw-pill"><span class="fw-dot dot-react"></span>React Router v7</div>
+          <div class="fw-pill"><span class="fw-dot dot-ts"></span>Vitest</div>
+          <div class="fw-pill"><span class="fw-dot dot-vite"></span>ESLint</div>
+          <div class="fw-pill"><span class="fw-dot dot-node"></span>Axios</div>
+        </div>
+        <div class="framework-row reverse">
+          <div class="fw-pill"><span class="fw-dot dot-cf"></span>Durable Objects</div>
+          <div class="fw-pill"><span class="fw-dot dot-db"></span>D1 / SQLite</div>
+          <div class="fw-pill"><span class="fw-dot dot-db"></span>R2 Storage</div>
+          <div class="fw-pill"><span class="fw-dot dot-razorpay"></span>Razorpay</div>
+          <div class="fw-pill"><span class="fw-dot dot-pdf"></span>pdf-lib</div>
+          <div class="fw-pill"><span class="fw-dot dot-node"></span>WebSocket</div>
+          <div class="fw-pill"><span class="fw-dot dot-aws"></span>AWS</div>
+          <div class="fw-pill"><span class="fw-dot dot-sonar"></span>SonarQube</div>
+          <div class="fw-pill"><span class="fw-dot dot-recharts"></span>Recharts</div>
+          <div class="fw-pill"><span class="fw-dot dot-cf"></span>KV Store</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="new-tabs-wrap">
+        <div class="new-tabs" id="newTabs">
+          <button class="new-tab active" data-tab="frontend" data-color="#00c9a7">
+            <span class="ntab-dot" style="background:#00c9a7"></span>Frontend
+          </button>
+          <button class="new-tab" data-tab="backend" data-color="#ff6b35">
+            <span class="ntab-dot" style="background:#ff6b35"></span>Backend &amp; Cloud
+          </button>
+          <button class="new-tab" data-tab="desktop" data-color="#00c9a7">
+            <span class="ntab-dot" style="background:#00c9a7"></span>Desktop
+          </button>
+          <button class="new-tab" data-tab="testing" data-color="#ffd166">
+            <span class="ntab-dot" style="background:#ffd166"></span>Testing &amp; QA
+          </button>
+
+          <div class="tab-slider" id="tabSlider"></div>
+        </div>
+      </div>
+
+      <!-- Bento Panels -->
+      <div class="bento-panels">
+
+        <!-- FRONTEND -->
+        <div class="bento-panel active" id="bento-frontend">
+          <div class="bento-grid">
+            <div class="bento-card bento-hero" data-cat="frontend">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-tag">Primary</div>
+              <div class="bc-ring-wrap">
+                <svg class="bc-ring" viewBox="0 0 100 100">
+                  <circle class="bcr-bg" cx="50" cy="50" r="40"/>
+                  <circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/>
+                </svg>
+                <span class="bc-ring-icon">&#x26DB;</span>
+              </div>
+              <h3 class="bc-name">React 18 / 19</h3>
+              <p class="bc-desc">Concurrent features, hooks, context, Suspense &mdash; used in every production project</p>
+              <div class="bc-used">Used in Production</div>
+            </div>
+            <div class="bento-card" data-cat="frontend">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F9ED;</span>
+              </div>
+              <h3 class="bc-name">React Router v6/v7</h3>
+              <p class="bc-desc">Client-side routing, protected routes, nested layouts, data loaders</p>
+            </div>
+            <div class="bento-card" data-cat="frontend">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x26A1;</span>
+              </div>
+              <h3 class="bc-name">Vite</h3>
+              <p class="bc-desc">Ultra-fast dev server, code splitting, optimized production bundles</p>
+            </div>
+            <div class="bento-card bento-wide" data-cat="frontend">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-tag">Used in Prod</div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F43B;</span>
+              </div>
+              <h3 class="bc-name">Zustand</h3>
+              <p class="bc-desc">Global state management — used in PrintStudio for job queue &amp; connection state</p>
+            </div>
+            <div class="bento-card" data-cat="frontend">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F4CA;</span>
+              </div>
+              <h3 class="bc-name">Recharts</h3>
+              <p class="bc-desc">Dashboard analytics and scan-activity charts in Amagle</p>
+            </div>
+            <div class="bento-card" data-cat="frontend">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F310;</span>
+              </div>
+              <h3 class="bc-name">Axios</h3>
+              <p class="bc-desc">Global interceptors for auto 401 cleanup across 15+ endpoints</p>
+            </div>
+            <div class="bento-card" data-cat="frontend">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F3A8;</span>
+              </div>
+              <h3 class="bc-name">CSS3 / Modules</h3>
+              <p class="bc-desc">Grid, Flexbox, keyframe animations, responsive design</p>
+            </div>
+            <div class="bento-card" data-cat="frontend">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F4C4;</span>
+              </div>
+              <h3 class="bc-name">react-pdf</h3>
+              <p class="bc-desc">Render PDFs inside React for document preview</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BACKEND -->
+        <div class="bento-panel" id="bento-backend">
+          <div class="bento-grid">
+            <div class="bento-card bento-hero" data-cat="backend">
+              <div class="bc-glow" style="--gc:#ff6b35"></div>
+              <div class="bc-tag">Primary</div>
+              <div class="bc-ring-wrap">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ff6b35"/></svg>
+                <span class="bc-ring-icon">&#x1F329;&#xFE0F;</span>
+              </div>
+              <h3 class="bc-name">Cloudflare Workers</h3>
+              <p class="bc-desc">Full PrintStudio backend deployed globally &mdash; serverless, zero cold starts, edge-native</p>
+              <div class="bc-used">Used in Production</div>
+            </div>
+            <div class="bento-card" data-cat="backend">
+              <div class="bc-glow" style="--gc:#ff6b35"></div>
+              <div class="bc-tag">Prod</div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ff6b35"/></svg>
+                <span class="bc-ring-icon">&#x1F501;</span>
+              </div>
+              <h3 class="bc-name">Durable Objects</h3>
+              <p class="bc-desc">Stateful WebSocket relay, zero-latency dispatch</p>
+            </div>
+            <div class="bento-card" data-cat="backend">
+              <div class="bc-glow" style="--gc:#ff6b35"></div>
+              <div class="bc-tag">Prod</div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ff6b35"/></svg>
+                <span class="bc-ring-icon">&#x1F525;</span>
+              </div>
+              <h3 class="bc-name">Hono Framework</h3>
+              <p class="bc-desc">Ultra-fast CF Workers framework &mdash; routing, middleware, auth</p>
+            </div>
+            <div class="bento-card bento-wide" data-cat="backend">
+              <div class="bc-glow" style="--gc:#ff6b35"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ff6b35"/></svg>
+                <span class="bc-ring-icon">&#x1F5C4;</span>
+              </div>
+              <h3 class="bc-name">Cloudflare D1 / SQLite</h3>
+              <p class="bc-desc">Edge relational database &mdash; schemas, migrations, query API</p>
+            </div>
+            <div class="bento-card" data-cat="backend">
+              <div class="bc-glow" style="--gc:#ff6b35"></div>
+              <div class="bc-tag">Prod</div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ff6b35"/></svg>
+                <span class="bc-ring-icon">&#x1F4B3;</span>
+              </div>
+              <h3 class="bc-name">Razorpay</h3>
+              <p class="bc-desc">Orders, HMAC-SHA256 webhooks, auto license activation</p>
+            </div>
+            <div class="bento-card" data-cat="backend">
+              <div class="bc-glow" style="--gc:#ff6b35"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ff6b35"/></svg>
+                <span class="bc-ring-icon">&#x1F517;</span>
+              </div>
+              <h3 class="bc-name">WebSocket</h3>
+              <p class="bc-desc">Real-time print dispatch &mdash; ws library &amp; CF native</p>
+            </div>
+            <div class="bento-card" data-cat="backend">
+              <div class="bc-glow" style="--gc:#ff6b35"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ff6b35"/></svg>
+                <span class="bc-ring-icon">&#x2601;&#xFE0F;</span>
+              </div>
+              <h3 class="bc-name">AWS (Cloud Foundations)</h3>
+              <p class="bc-desc">Core services, IAM, security, pricing &mdash; certified</p>
+            </div>
+            <div class="bento-card" data-cat="backend">
+              <div class="bc-glow" style="--gc:#ff6b35"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ff6b35"/></svg>
+                <span class="bc-ring-icon">&#x1F512;</span>
+              </div>
+              <h3 class="bc-name">JWT / OTP Auth</h3>
+              <p class="bc-desc">Bearer tokens, phone OTP, security patterns</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESKTOP -->
+        <div class="bento-panel" id="bento-desktop">
+          <div class="bento-grid">
+            <div class="bento-card bento-hero" data-cat="desktop">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-tag">Primary</div>
+              <div class="bc-ring-wrap">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F5A5;&#xFE0F;</span>
+              </div>
+              <h3 class="bc-name">Electron 42</h3>
+              <p class="bc-desc">Cross-platform desktop apps &mdash; main/renderer process, Context Isolation, strict security model</p>
+              <div class="bc-used">PrintStudio Desktop Client</div>
+            </div>
+            <div class="bento-card" data-cat="desktop">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F4E1;</span>
+              </div>
+              <h3 class="bc-name">IPC / preload</h3>
+              <p class="bc-desc">Allowlist-only IPC channels, secure preload scripts</p>
+            </div>
+            <div class="bento-card" data-cat="desktop">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F4E6;</span>
+              </div>
+              <h3 class="bc-name">Electron Builder</h3>
+              <p class="bc-desc">NSIS Windows installer v2.4.0 with ASAR packaging</p>
+            </div>
+            <div class="bento-card bento-wide" data-cat="desktop">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-tag">Prod</div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F4C4;</span>
+              </div>
+              <h3 class="bc-name">pdf-lib</h3>
+              <p class="bc-desc">PDF merge, page-range extraction, layout transforms (2up/landscape)</p>
+            </div>
+            <div class="bento-card" data-cat="desktop">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F5A8;&#xFE0F;</span>
+              </div>
+              <h3 class="bc-name">pdf-to-printer</h3>
+              <p class="bc-desc">Silent dispatch to physical printers on shop floor</p>
+            </div>
+            <div class="bento-card" data-cat="desktop">
+              <div class="bc-glow" style="--gc:#00c9a7"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#00c9a7"/></svg>
+                <span class="bc-ring-icon">&#x1F6E1;&#xFE0F;</span>
+              </div>
+              <h3 class="bc-name">Electron Security</h3>
+              <p class="bc-desc">CSP headers, disabled Node in renderer, XSS guards</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TESTING -->
+        <div class="bento-panel" id="bento-testing">
+          <div class="bento-grid">
+            <div class="bento-card bento-hero" data-cat="testing">
+              <div class="bc-glow" style="--gc:#ffd166"></div>
+              <div class="bc-tag">Used in Prod</div>
+              <div class="bc-ring-wrap">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ffd166"/></svg>
+                <span class="bc-ring-icon">&#x1F50D;</span>
+              </div>
+              <h3 class="bc-name">SonarQube</h3>
+              <p class="bc-desc">Static analysis pipeline enforcing zero-warning ESLint rules across entire TypeScript codebase</p>
+              <div class="bc-used">Amagle Codebase</div>
+            </div>
+            <div class="bento-card" data-cat="testing">
+              <div class="bc-glow" style="--gc:#ffd166"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ffd166"/></svg>
+                <span class="bc-ring-icon">&#x2697;&#xFE0F;</span>
+              </div>
+              <h3 class="bc-name">Vitest</h3>
+              <p class="bc-desc">Unit and integration testing across all projects</p>
+            </div>
+            <div class="bento-card" data-cat="testing">
+              <div class="bc-glow" style="--gc:#ffd166"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ffd166"/></svg>
+                <span class="bc-ring-icon">&#x1F9EA;</span>
+              </div>
+              <h3 class="bc-name">@testing-library/react</h3>
+              <p class="bc-desc">Component testing, user-event simulation</p>
+            </div>
+            <div class="bento-card bento-wide" data-cat="testing">
+              <div class="bc-glow" style="--gc:#ffd166"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ffd166"/></svg>
+                <span class="bc-ring-icon">&#x2705;</span>
+              </div>
+              <h3 class="bc-name">ESLint</h3>
+              <p class="bc-desc">Zero-warning enforcement, custom rule config, TypeScript-ESLint integration</p>
+            </div>
+            <div class="bento-card" data-cat="testing">
+              <div class="bc-glow" style="--gc:#ffd166"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ffd166"/></svg>
+                <span class="bc-ring-icon">&#x1F527;</span>
+              </div>
+              <h3 class="bc-name">Wrangler CLI</h3>
+              <p class="bc-desc">CF Workers deployment, D1 migrations, local tunneling</p>
+            </div>
+            <div class="bento-card" data-cat="testing">
+              <div class="bc-glow" style="--gc:#ffd166"></div>
+              <div class="bc-ring-wrap sm">
+                <svg class="bc-ring" viewBox="0 0 100 100"><circle class="bcr-bg" cx="50" cy="50" r="40"/><circle class="bcr-fill" cx="50" cy="50" r="40" style="--pct:100;--cc:#ffd166"/></svg>
+                <span class="bc-ring-icon">&#x1F3AF;</span>
+              </div>
+              <h3 class="bc-name">Jest-DOM</h3>
+              <p class="bc-desc">Custom DOM matchers in React component tests</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Tech Cloud -->
+      <div class="tech-cloud-wrap">
+        <div class="section-label" style="text-align:center;margin-bottom:1.5rem;">Complete Technology Map</div>
+        <div class="tech-cloud">
+          <span class="tc-tag tc-l1">React 18/19</span><span class="tc-tag tc-l2">TypeScript</span><span class="tc-tag tc-l1">Vite</span><span class="tc-tag tc-l3">Node.js</span><span class="tc-tag tc-l1">Hono</span><span class="tc-tag tc-l2">Electron 42</span><span class="tc-tag tc-l1">Cloudflare Workers</span><span class="tc-tag tc-l3">Zustand</span><span class="tc-tag tc-l2">React Router v7</span><span class="tc-tag tc-l3">Recharts</span><span class="tc-tag tc-l1">Durable Objects</span><span class="tc-tag tc-l2">D1/SQLite</span><span class="tc-tag tc-l3">R2 Storage</span><span class="tc-tag tc-l2">Razorpay</span><span class="tc-tag tc-l3">pdf-lib</span><span class="tc-tag tc-l1">WebSocket</span><span class="tc-tag tc-l2">JWT Auth</span><span class="tc-tag tc-l3">OTP Auth</span><span class="tc-tag tc-l1">Vitest</span><span class="tc-tag tc-l2">SonarQube</span><span class="tc-tag tc-l3">ESLint</span><span class="tc-tag tc-l1">Axios</span><span class="tc-tag tc-l2">Lucide React</span><span class="tc-tag tc-l3">react-pdf</span><span class="tc-tag tc-l2">Electron Builder</span><span class="tc-tag tc-l1">NSIS Installer</span><span class="tc-tag tc-l3">Wrangler CLI</span><span class="tc-tag tc-l2">AWS</span><span class="tc-tag tc-l1">KV Store</span><span class="tc-tag tc-l3">REST API</span><span class="tc-tag tc-l2">HMAC-SHA256</span><span class="tc-tag tc-l1">CSP Headers</span><span class="tc-tag tc-l3">Git</span><span class="tc-tag tc-l2">npm</span><span class="tc-tag tc-l1">JavaScript ES2022</span><span class="tc-tag tc-l3">Python</span><span class="tc-tag tc-l2">HTML5</span><span class="tc-tag tc-l1">CSS3</span><span class="tc-tag tc-l3">IPC/preload</span><span class="tc-tag tc-l2">pdf-to-printer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PROJECTS -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">What I've built</div>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-desc">Production systems shipped with real users and real infrastructure</p>
+      </div>
+
+      <div class="project-feature">
+        <div class="project-feature-header">
+          <div class="project-meta"><span class="project-version">v2.4.0</span><span class="project-type">Personal Project &middot; Production</span></div>
+          <h3 class="project-title">PrintStudio</h3>
+          <p class="project-tagline">B2B Cloud-Native Print Automation Platform</p>
+          <p class="project-desc">A distributed 3-tier SaaS platform automating print shop workflows &mdash; from file uploads to silent printing. Serverless Cloudflare backend + Electron desktop client + React PWA customer portal.</p>
+          <div class="project-tech-tags"><span>Cloudflare Workers</span><span>Hono</span><span>Durable Objects</span><span>D1/SQLite</span><span>R2 Storage</span><span>KV Store</span><span>Electron 42</span><span>React 19</span><span>TypeScript</span><span>Zustand</span><span>Razorpay</span><span>WebSocket</span><span>pdf-lib</span><span>pdf-to-printer</span><span>Vitest</span><span>Electron Builder</span><span>NSIS</span></div>
+        </div>
+        <div class="project-highlights-grid">
+          <div class="highlight-card hc-purple"><div class="hc-icon">&#x1F501;</div><h4>Real-time WebSocket</h4><p>Zero-latency order dispatch via Cloudflare Durable Objects.</p></div>
+          <div class="highlight-card hc-blue"><div class="hc-icon">&#x1F4B3;</div><h4>3-Tier SaaS Billing</h4><p>Razorpay with HMAC-SHA256 webhook verification &amp; auto license activation.</p></div>
+          <div class="highlight-card hc-green"><div class="hc-icon">&#x1F4C4;</div><h4>PDF Pipeline</h4><p>Download, merge, page-range extract, layout transform (2up/landscape), silent print.</p></div>
+          <div class="highlight-card hc-orange"><div class="hc-icon">&#x1F6E1;&#xFE0F;</div><h4>Hardened Security</h4><p>CSP headers, disabled Node in renderer, allowlist IPC, 3-tier rate limiting.</p></div>
+          <div class="highlight-card hc-red"><div class="hc-icon">&#x2699;&#xFE0F;</div><h4>Dedup Job Queue</h4><p>Map-keyed per orderId to prevent double-print. Disk-persisted, recovered on restart.</p></div>
+          <div class="highlight-card hc-teal"><div class="hc-icon">&#x1F4E6;</div><h4>NSIS Windows Installer</h4><p>Installer with stable device ID from motherboard UUID &amp; 7-day log rotation.</p></div>
+        </div>
+        <div class="project-links"><a href="https://github.com/Devesh19201" target="_blank" class="btn btn-outline">View on GitHub &#x2197;</a></div>
+      </div>
+
+      <div class="project-feature project-feature-alt">
+        <div class="project-feature-header">
+          <div class="project-meta"><span class="project-version">Production</span><span class="project-type">Amagle Software &middot; Feb&ndash;Jul 2026</span></div>
+          <h3 class="project-title">Amagle</h3>
+          <p class="project-tagline">Healthcare QR Emergency ID System</p>
+          <p class="project-desc">Healthcare platform generating emergency QR IDs linking to public profiles, allowing first responders instant access to medical information without any login required. Full-stack React + TypeScript SPA.</p>
+          <div class="project-tech-tags"><span>React 18</span><span>TypeScript</span><span>Vite</span><span>Axios</span><span>Recharts</span><span>OTP Auth</span><span>JWT</span><span>QR Generation</span><span>SonarQube</span><span>React Router v6</span><span>Lucide React</span><span>ESLint</span></div>
+        </div>
+        <div class="project-highlights-grid">
+          <div class="highlight-card hc-blue"><div class="hc-icon">&#x1F4F1;</div><h4>OTP Phone Auth</h4><p>Phone &rarr; OTP &rarr; JWT flow with global Axios interceptors for automatic 401 token cleanup.</p></div>
+          <div class="highlight-card hc-green"><div class="hc-icon">&#x1F532;</div><h4>QR Emergency IDs</h4><p>Scannable QR codes linking to public profiles, accessible without authentication.</p></div>
+          <div class="highlight-card hc-purple"><div class="hc-icon">&#x1F4CA;</div><h4>Dashboard Analytics</h4><p>Recharts scan-activity charts and real-time QR profile statistics.</p></div>
+          <div class="highlight-card hc-orange"><div class="hc-icon">&#x1F512;</div><h4>Session Management</h4><p>25-min inactivity warning + 5-min auto-logout to eliminate orphaned sessions.</p></div>
+          <div class="highlight-card hc-red"><div class="hc-icon">&#x1F4C1;</div><h4>Medical Documents</h4><p>Upload and manage medical documents within emergency profiles, accessible on scan.</p></div>
+          <div class="highlight-card hc-teal"><div class="hc-icon">&#x2705;</div><h4>Code Quality</h4><p>SonarQube static analysis pipeline enforcing zero-warning ESLint rules across TypeScript.</p></div>
+        </div>
+        <div class="project-links"><a href="https://github.com/Devesh19201" target="_blank" class="btn btn-outline">View on GitHub &#x2197;</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section experience" id="experience">
+    <canvas id="expCanvas"></canvas>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Where I've worked</div>
+        <h2 class="section-title">Experience &amp; Education</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot active"></div>
+          <div class="timeline-card">
+            <div class="timeline-header"><div><h3>Software Developer</h3><span class="timeline-company">Amagle Software</span></div><span class="timeline-date">Feb 2026 &mdash; Jul 2026</span></div>
+            <ul class="timeline-points">
+              <li>Built healthcare QR emergency ID platform &mdash; full-stack React SPA with OTP phone auth, QR code generation, and medical document management.</li>
+              <li>Integrated global Axios interceptors for automatic 401 token cleanup across <strong>15+ API endpoints</strong>.</li>
+              <li>Configured SonarQube static analysis pipeline, enforcing zero-warning ESLint rules across project.</li>
+              <li>Delivered dashboard analytics with Recharts scan-activity charts and real-time profile stats.</li>
+            </ul>
+            <div class="timeline-tech"><span>React 18</span><span>TypeScript</span><span>Vite</span><span>Axios</span><span>Recharts</span><span>SonarQube</span><span>JWT</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header"><div><h3>B.Tech &mdash; Computer Science &amp; Engineering</h3><span class="timeline-company">Satyug Darshan Institute of Engineering &amp; Technology</span></div><span class="timeline-date">2022 &mdash; 2026</span></div>
+            <ul class="timeline-points">
+              <li>Shipped PrintStudio and Amagle to production independently &mdash; real users, real billing.</li>
+              <li>Self-directed learning: Cloudflare ecosystem, Electron security, SaaS billing, and real-time systems.</li>
+            </ul>
+            <div class="timeline-tech"><span>Faridabad, Haryana</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot cert"></div>
+          <div class="timeline-card cert-card">
+            <div class="timeline-header"><div><h3>AWS Academy Cloud Foundations</h3><span class="timeline-company">Amazon Web Services (AWS Academy)</span></div><span class="timeline-date">Certified</span></div>
+            <p class="cert-desc">Core AWS services, cloud architecture, security, pricing, and support models.</p>
+            <div class="cert-badge"><span>&#x2601;&#xFE0F;</span> AWS Academy Certified</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="contact-glow"></div>
+        <div class="section-label">Let's talk</div>
+        <h2 class="contact-title">Ready to build<br/>something <em>great</em>?</h2>
+        <p class="contact-desc">Whether you have a project in mind, want to collaborate, or just want to talk tech &mdash; my inbox is always open.</p>
+        <div class="contact-cards">
+          <a href="mailto:devesh192013@gmail.com" class="contact-card"><div class="cc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="cc-info"><span class="cc-label">Email</span><span class="cc-value">devesh192013@gmail.com</span></div><span class="cc-arrow">&#x2197;</span></a>
+          <a href="https://linkedin.com/in/dev-devesh" target="_blank" class="contact-card"><div class="cc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div><div class="cc-info"><span class="cc-label">LinkedIn</span><span class="cc-value">linkedin.com/in/dev-devesh</span></div><span class="cc-arrow">&#x2197;</span></a>
+          <a href="https://github.com/Devesh19201" target="_blank" class="contact-card"><div class="cc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div><div class="cc-info"><span class="cc-label">GitHub</span><span class="cc-value">github.com/Devesh19201</span></div><span class="cc-arrow">&#x2197;</span></a>
+          <div class="contact-card static-card"><div class="cc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.128.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.572 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="cc-info"><span class="cc-label">Phone</span><span class="cc-value">+91 9289960381</span></div><span class="cc-arrow">&#x1F4DE;</span></div>
+        </div>
+        <div class="contact-bottom"><span>Faridabad, Haryana, India</span><span class="dot">&middot;</span><span>Open to Remote &amp; Hybrid</span><span class="dot">&middot;</span><span id="localTime"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#hero" class="footer-logo"><span class="logo-main">devesh</span><span class="logo-accent">.</span><span class="logo-sub">dev</span></a>
+        <p class="footer-copy">Designed &amp; coded by Devesh Singh &middot; 2026</p>
+        <div class="footer-links"><a href="https://github.com/Devesh19201" target="_blank">GitHub</a><a href="https://linkedin.com/in/dev-devesh" target="_blank">LinkedIn</a><a href="mailto:devesh192013@gmail.com">Email</a></div>
+      </div>
+    </div>
+  </footer>
+  
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">&#x2191;</button>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/cursor.js" defer></script>
+  <script src="js/typing.js" defer></script>
+  <script src="js/scene-hero.js" defer></script>
+  <script src="js/scene-avatar.js" defer></script>
+  <script src="js/scene-galaxy.js" defer></script>
+  <script src="js/scene-experience.js" defer></script>
+  <script src="js/bento-tabs.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
+
+

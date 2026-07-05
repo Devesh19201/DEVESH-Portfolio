@@ -1,0 +1,11 @@
+﻿/* ════════════════════════════════════════
+   PORTFOLIO DESIGN SYSTEM ENTRY POINT
+════════════════════════════════════════ */
+@import url('styles/variables.css');
+@import url('styles/base.css');
+@import url('styles/hero.css');
+@import url('styles/about.css');
+@import url('styles/skills.css');
+@import url('styles/projects.css');
+@import url('styles/experience.css');
+@import url('styles/contact.css');
