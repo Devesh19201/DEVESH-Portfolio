@@ -1,0 +1,45 @@
+﻿/* NEU-BRUTALISM DESIGN TOKENS */
+:root {
+  /* Core Colors */
+  --nb-black: #1a1a1a;
+  --nb-white: #fafafa;
+  --nb-gray: #e5e5e5;
+
+  /* Card / Section Colors */
+  --card-hero: #FFE066;       /* Yellow */
+  --card-about: #FF6B9D;      /* Hot Pink */
+  --card-skills: #4ECDC4;     /* Teal */
+  --card-projects: #C3B1E1;   /* Lavender */
+  --card-experience: #A8E6CF; /* Mint */
+  --card-contact: #FF8C69;    /* Coral */
+
+  /* Borders */
+  --nb-border-width: 3px;
+  --nb-border: var(--nb-border-width) solid var(--nb-black);
+  --nb-border-thick: 5px solid var(--nb-black);
+
+  /* Shadows (Hard, no blur) */
+  --nb-shadow-sm: 4px 4px 0 var(--nb-black);
+  --nb-shadow: 6px 6px 0 var(--nb-black);
+  --nb-shadow-lg: 10px 10px 0 var(--nb-black);
+  
+  /* Interactive States */
+  --nb-shadow-hover: 8px 8px 0 var(--nb-black);
+  --nb-translate-hover: translate(-2px, -2px);
+  --nb-translate-active: translate(2px, 2px);
+  --nb-shadow-active: 2px 2px 0 var(--nb-black);
+
+  /* Radii - mostly sharp in brutalism */
+  --nb-radius: 0px;
+  --nb-radius-sm: 4px;
+  --nb-radius-pill: 50px;
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Transitions */
+  --nb-transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  --card-transition: 700ms cubic-bezier(0.76, 0, 0.24, 1);
+}

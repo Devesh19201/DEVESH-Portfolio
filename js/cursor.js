@@ -1,42 +1,46 @@
-﻿/* ════════════════════════════════════════
-   JS MODULE: CUSTOM CURSOR
-════════════════════════════════════════ */
+﻿/* CUSTOM CURSOR (Brutalist style) */
 (function initCursor() {
+  if (window.matchMedia("(max-width: 768px)").matches) return;
+
   const cursor = document.getElementById('cursor');
-  const follower = document.getElementById('cursorFollower');
-  if (!cursor || !follower) return;
+  const dot = document.getElementById('cursorDot');
+  if (!cursor || !dot) return;
 
-  let cx = 0, cy = 0; // cursor position
-  let fx = 0, fy = 0; // follower position
-
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+  
   window.addEventListener('mousemove', e => {
-    cx = e.clientX;
-    cy = e.clientY;
-    cursor.style.left = cx + 'px';
-    cursor.style.top = cy + 'px';
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
   });
 
-  // Smooth lerp animation for the follower circle
-  function animateFollower() {
-    fx += (cx - fx) * 0.15;
-    fy += (cy - fy) * 0.15;
-    follower.style.left = fx + 'px';
-    follower.style.top = fy + 'px';
-    requestAnimationFrame(animateFollower);
+  function animate() {
+    cursorX += (mouseX - cursorX) * 0.15;
+    cursorY += (mouseY - cursorY) * 0.15;
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+    requestAnimationFrame(animate);
   }
-  animateFollower();
+  animate();
 
-  // Hover triggers to expand follower scale
-  document.querySelectorAll('a, button, .contact-card, .new-tab, .fw-pill').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      follower.style.transform = 'translate(-50%, -50%) scale(1.6)';
-      follower.style.borderColor = 'var(--accent)';
-      cursor.style.backgroundColor = 'var(--accent)';
-    });
-    el.addEventListener('mouseleave', () => {
-      follower.style.transform = 'translate(-50%, -50%) scale(1)';
-      follower.style.borderColor = 'rgba(255, 107, 53, 0.35)';
-      cursor.style.backgroundColor = 'var(--accent2)';
-    });
+  const addHover = () => cursor.classList.add('hover');
+  const removeHover = () => cursor.classList.remove('hover');
+  const addDrag = () => cursor.classList.add('drag');
+  const removeDrag = () => cursor.classList.remove('drag');
+
+  const interactives = document.querySelectorAll('a, button, .nb-btn, .nav-link, .page-dot');
+  interactives.forEach(el => {
+    el.addEventListener('mouseenter', addHover);
+    el.addEventListener('mouseleave', removeHover);
+  });
+  
+  const pages = document.querySelectorAll('.page-card');
+  pages.forEach(el => {
+    el.addEventListener('mousedown', addDrag);
+    el.addEventListener('mouseup', removeDrag);
   });
 })();

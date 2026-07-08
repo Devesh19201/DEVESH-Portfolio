@@ -1,106 +1,63 @@
-﻿/* ════════════════════════════════════════
-   JS MODULE: MENU, SCROLL, AND MISC
-════════════════════════════════════════ */
-(function initNavigation() {
+﻿/* MENU NAVIGATION */
+(function initMenu() {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   const nav = document.getElementById('nav');
-  const backToTop = document.getElementById('backToTop');
-  const localTimeEl = document.getElementById('localTime');
-
-  // Hamburger toggle
+  
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       mobileMenu.classList.toggle('active');
     });
-
-    // Close mobile menu on clicking links
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-      });
-    });
   }
 
-  // Scroll animations/blurs
-  window.addEventListener('scroll', () => {
-    const scroll = window.scrollY;
-
-    // Navbar scroll dynamic classes
-    if (nav) {
-      if (scroll > 50) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    }
-
-    // Back-to-top visibility toggle
-    if (backToTop) {
-      if (scroll > 600) backToTop.classList.add('visible');
-      else backToTop.classList.remove('visible');
-    }
+  // Handle nav clicks using shuffleTo
+  const links = document.querySelectorAll('.nav-link, .mobile-link');
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      // Ignore external links like resume
+      if (link.getAttribute('target') === '_blank') return;
+      
+      e.preventDefault();
+      
+      if (mobileMenu && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+      }
+      
+      const pageIndex = parseInt(link.getAttribute('data-page'));
+      if (!isNaN(pageIndex) && window.shuffleTo) {
+        window.shuffleTo(pageIndex);
+      }
+    });
+  });
+  
+  // Handle dots click
+  const dots = document.querySelectorAll('.page-dot');
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const pageIndex = parseInt(dot.getAttribute('data-page'));
+      if (!isNaN(pageIndex) && window.shuffleTo) {
+        window.shuffleTo(pageIndex);
+      }
+    });
   });
 
-  if (backToTop) {
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // Local clock sync (India Time)
-  if (localTimeEl) {
-    function updateClock() {
-      const options = {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      };
-      const timeStr = new Date().toLocaleTimeString('en-US', options);
-      localTimeEl.textContent = `Local Time: ${timeStr} (IST)`;
+  // Hide nav when scrolling down inside a card (optional refinement)
+  let lastScrollY = 0;
+  window.addEventListener('scroll', () => {
+    const pages = document.querySelectorAll('.page-card');
+    let activeCard;
+    pages.forEach(p => { if (p.classList.contains('active')) activeCard = p; });
+    
+    if (activeCard) {
+      const scrollY = activeCard.scrollTop;
+      if (scrollY > 100 && scrollY > lastScrollY) {
+        nav.style.transform = 'translateY(-100%)';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+      lastScrollY = scrollY;
     }
-    updateClock();
-    setInterval(updateClock, 1000);
-  }
-
-  // Counter stats animation observers
-  function animateCounters() {
-    document.querySelectorAll('.stat-number').forEach(el => {
-      const target = parseInt(el.dataset.target);
-      let current = 0;
-      const step = target / 50;
-      const timer = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.textContent = Math.floor(current) + (target >= 10 ? '+' : '');
-        if (current >= target) clearInterval(timer);
-      }, 30);
-    });
-  }
-
-  const statsEl = document.querySelector('.hero-stats');
-  if (statsEl) {
-    const heroObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          animateCounters();
-          heroObserver.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-    heroObserver.observe(statsEl);
-  }
-
-  // Timeline dot highlighting on scroll
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  if (timelineItems.length) {
-    const timeObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelector('.timeline-dot').classList.add('active');
-        }
-      });
-    }, { threshold: 0.5 });
-    timelineItems.forEach(item => timeObserver.observe(item));
-  }
+  }, { capture: true, passive: true });
 })();

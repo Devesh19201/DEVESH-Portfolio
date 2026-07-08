@@ -1,0 +1,130 @@
+﻿/* PROJECTS SECTION (Lavender Card) */
+.projects {
+  min-height: 100vh;
+  padding: 100px 0;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.project-card {
+  border: var(--nb-border-thick);
+  background: var(--nb-white);
+  box-shadow: var(--nb-shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-header {
+  padding: 40px;
+  border-bottom: var(--nb-border-thick);
+  background: var(--nb-white);
+}
+
+.project-type {
+  display: inline-block;
+  border: var(--nb-border);
+  background: var(--card-projects);
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  box-shadow: var(--nb-shadow-sm);
+}
+
+.project-name {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.project-tagline {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.project-body {
+  padding: 40px;
+  background: var(--nb-white);
+}
+
+.project-section {
+  margin-bottom: 30px;
+}
+.project-section:last-child {
+  margin-bottom: 0;
+}
+
+.project-section-title {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.project-section-title::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: var(--nb-black);
+}
+
+.project-features {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.project-features li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.project-features li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.arch-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.arch-tag {
+  border: var(--nb-border);
+  background: var(--nb-white);
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: var(--nb-shadow-sm);
+}
+
+.project-links {
+  padding: 30px 40px;
+  border-top: var(--nb-border-thick);
+  background: var(--nb-black);
+}
+.project-links .nb-btn {
+  background: var(--nb-white);
+  color: var(--nb-black);
+}

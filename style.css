@@ -1,6 +1,4 @@
-﻿/* ════════════════════════════════════════
-   PORTFOLIO DESIGN SYSTEM ENTRY POINT
-════════════════════════════════════════ */
+﻿@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap');
 @import url('styles/variables.css');
 @import url('styles/base.css');
 @import url('styles/hero.css');

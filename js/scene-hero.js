@@ -1,6 +1,4 @@
-﻿/* ════════════════════════════════════════
-   JS MODULE: HERO WEBGL PARTICLES
-════════════════════════════════════════ */
+﻿/* HERO WEBGL PARTICLES (Neu-Brutalism Style) */
 (function initHeroParticles() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas || typeof THREE === 'undefined') return;
@@ -16,75 +14,73 @@
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // Particle creation
-  const count = 100;
+  // Reduced particle count for performance and brutalist style
+  const count = 60;
   const posArr = new Float32Array(count * 3);
   const velArr = [];
 
   for (let i = 0; i < count; i++) {
-    // Spread in 3D space
     posArr[i * 3] = (Math.random() - 0.5) * 350;
     posArr[i * 3 + 1] = (Math.random() - 0.5) * 350;
     posArr[i * 3 + 2] = (Math.random() - 0.5) * 350;
 
+    // Much slower velocity for smooth movement
     velArr.push({
-      x: (Math.random() - 0.5) * 0.4,
-      y: (Math.random() - 0.5) * 0.4,
-      z: (Math.random() - 0.5) * 0.4
+      x: (Math.random() - 0.5) * 0.08,
+      y: (Math.random() - 0.5) * 0.08,
+      z: (Math.random() - 0.5) * 0.08
     });
   }
 
   const pGeo = new THREE.BufferGeometry();
   pGeo.setAttribute('position', new THREE.BufferAttribute(posArr, 3));
 
-  // Orange color scheme for Midnight Ember theme
+  // Black particles for yellow background
   const pMat = new THREE.PointsMaterial({
-    size: 2.2,
-    color: 0xff6b35,
+    size: 4.0,
+    color: 0x1a1a1a,
     transparent: true,
-    opacity: 0.6,
+    opacity: 0.8,
     sizeAttenuation: true
   });
 
   const pMesh = new THREE.Points(pGeo, pMat);
   scene.add(pMesh);
 
-  // Line connection geometry
   const lineMat = new THREE.LineBasicMaterial({
-    color: 0x00c9a7, // seafoam teal accent lines
+    color: 0x1a1a1a,
     transparent: true,
-    opacity: 0.08
+    opacity: 0.15
   });
 
   let lineMesh;
 
-  // Interactivity
   let targetX = 0, targetY = 0;
   window.addEventListener('mousemove', e => {
-    targetX = (e.clientX - window.innerWidth / 2) * 0.04;
-    targetY = (e.clientY - window.innerHeight / 2) * 0.04;
+    targetX = (e.clientX - window.innerWidth / 2) * 0.001; // Reduced follow distance
+    targetY = (e.clientY - window.innerHeight / 2) * 0.001;
   });
 
   let animationId;
   function animate() {
     animationId = requestAnimationFrame(animate);
+    
+    // Only animate when hero is visible
+    if (window.getCurrentPage && window.getCurrentPage() !== 0) return;
 
     const positions = pGeo.attributes.position.array;
 
-    // Move particles inside space bounds
     for (let i = 0; i < count; i++) {
       positions[i * 3] += velArr[i].x;
       positions[i * 3 + 1] += velArr[i].y;
       positions[i * 3 + 2] += velArr[i].z;
 
-      // Bounce boundaries
       if (Math.abs(positions[i * 3]) > 180) velArr[i].x *= -1;
       if (Math.abs(positions[i * 3 + 1]) > 180) velArr[i].y *= -1;
       if (Math.abs(positions[i * 3 + 2]) > 180) velArr[i].z *= -1;
     }
     pGeo.attributes.position.needsUpdate = true;
 
-    // Recompute constellation lines dynamically
     if (lineMesh) scene.remove(lineMesh);
 
     const linePoints = [];
@@ -92,7 +88,7 @@
       const p1 = new THREE.Vector3(positions[i*3], positions[i*3+1], positions[i*3+2]);
       for (let j = i + 1; j < count; j++) {
         const p2 = new THREE.Vector3(positions[j*3], positions[j*3+1], positions[j*3+2]);
-        if (p1.distanceTo(p2) < 55) {
+        if (p1.distanceTo(p2) < 60) {
           linePoints.push(p1, p2);
         }
       }
@@ -104,17 +100,17 @@
       scene.add(lineMesh);
     }
 
-    // Parallax mouse follow
-    pMesh.rotation.y += 0.001;
-    scene.rotation.y += (targetX - scene.rotation.y) * 0.05;
-    scene.rotation.x += (targetY - scene.rotation.x) * 0.05;
+    pMesh.rotation.y += 0.0005; // Slower idle rotation
+    
+    // Smoother interpolation for mouse tracking
+    scene.rotation.y += (targetX - scene.rotation.y) * 0.02;
+    scene.rotation.x += (targetY - scene.rotation.x) * 0.02;
 
     renderer.render(scene, camera);
   }
 
   animate();
 
-  // Resize handler
   window.addEventListener('resize', () => {
     const w = canvas.parentElement.offsetWidth;
     const h = canvas.parentElement.offsetHeight;
@@ -122,13 +118,4 @@
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
   });
-
-  // Offscreen optimization
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) animate();
-      else cancelAnimationFrame(animationId);
-    });
-  }, { threshold: 0.1 });
-  observer.observe(canvas.parentElement);
 })();

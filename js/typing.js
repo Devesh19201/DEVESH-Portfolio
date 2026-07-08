@@ -1,48 +1,47 @@
-﻿/* ════════════════════════════════════════
-   JS MODULE: TYPING EFFECT
-════════════════════════════════════════ */
+﻿/* TYPING EFFECT */
 (function initTyping() {
   const el = document.getElementById('heroTyped');
   if (!el) return;
 
-  const phrases = [
-    'cloud-native SaaS platforms.',
-    'real-time WebSocket systems.',
-    'Electron 42 desktop clients.',
-    'React 19 + TypeScript SPAs.',
-    'serverless Cloudflare backends.',
-    'full-stack production systems.',
-    'Hono + Durable Objects APIs.',
+  const strings = [
+    "production systems.",
+    "real-time architectures.",
+    "native desktop apps.",
+    "scalable cloud infra."
   ];
-
-  let pIdx = 0;
-  let charIdx = 0;
+  
+  let stringIndex = 0;
+  let charIndex = 0;
   let isDeleting = false;
-  let speed = 80;
-
+  let typeSpeed = 80;
+  let deleteSpeed = 40;
+  let pauseDuration = 2000;
+  const cursorChar = '&#9608;'; // Block cursor █
+  
   function type() {
-    const current = phrases[pIdx];
+    const currentString = strings[stringIndex];
+    
     if (isDeleting) {
-      el.textContent = current.substring(0, charIdx - 1);
-      charIdx--;
-      speed = 30;
+      el.innerHTML = currentString.substring(0, charIndex - 1) + cursorChar;
+      charIndex--;
     } else {
-      el.textContent = current.substring(0, charIdx + 1);
-      charIdx++;
-      speed = 60;
+      el.innerHTML = currentString.substring(0, charIndex + 1) + cursorChar;
+      charIndex++;
     }
-
-    if (!isDeleting && charIdx === current.length) {
+    
+    let speed = isDeleting ? deleteSpeed : typeSpeed;
+    
+    if (!isDeleting && charIndex === currentString.length) {
+      speed = pauseDuration;
       isDeleting = true;
-      speed = 1800; // Pause at end of phrase
-    } else if (isDeleting && charIdx === 0) {
+    } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
-      pIdx = (pIdx + 1) % phrases.length;
-      speed = 400; // Pause before typing next
+      stringIndex = (stringIndex + 1) % strings.length;
+      speed = 500;
     }
-
+    
     setTimeout(type, speed);
   }
-
-  setTimeout(type, 800);
+  
+  setTimeout(type, 1000);
 })();
